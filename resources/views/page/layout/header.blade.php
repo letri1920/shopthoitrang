@@ -88,6 +88,7 @@
                                 </li>
                                 @endif
                                 @endforeach
+                                <li><a href="{{route('news')}}">TIN TỨC</a></li>
 
                             </ul>
                         </nav>

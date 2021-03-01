@@ -60,6 +60,9 @@ class PageController extends Controller
         return view('page.pages.productdetail', compact('product_detail', 'related_product', 'rating', 'ratings'));
     }
 
+    public function getNews(){
+        return view('page.pages.news');
+    }
     public function postRating($id, RatingRequest $request)
     {
         $this->repository->postRating($id, $request);

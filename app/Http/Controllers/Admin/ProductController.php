@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Repositories\ProductRepository;
 use App\Http\Requests\ProductAddRequest;
 use App\Http\Requests\ProductEditRequest;
-use App\Http\Requests\ProductQuantityRequest;
 
 class ProductController extends Controller
 {
@@ -69,18 +68,4 @@ class ProductController extends Controller
         return $this->repository->getNo($id);
         // return redirect()->back()->with('success','Sản phẩm không nổi bật');
     }
-
-    //số lượng
-
-    // public function getEditQuantity($id)
-    // {
-    //     return  $this->repository->getEditQuantity($id);
-    // }
-
-    // public function postEditQuantity(ProductQuantityRequest $request)
-    // {
-    //    $this->repository->postEditQuantity($request);
-    //    return redirect()->back()->with('success', 'Thêm số lượng sản phẩm thành công');
-        
-    // }
 }

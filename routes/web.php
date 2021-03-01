@@ -44,6 +44,7 @@ Route::prefix('wmfashion')->group(function () {
 	Route::get('add-to-cart/{id}', [PageController::class, 'getAddToCart'])->name('add_to_cart');
 	Route::get('delete-carts/{id}', [PageController::class, 'getDeleteCarts'])->name('delete_carts');
 	Route::get('search', [PageController::class, 'getSearch'])->name('search');
+	Route::get('news',[PageController::class, 'getNews'])->name('news');
 
 	Route::get('shopping-cart', [PageController::class, 'getShoppingCart'])->name('shopping_cart');
 	Route::post('shopping-cart', [PageController::class, 'postCart'])->name('cart');

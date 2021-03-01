@@ -5,9 +5,6 @@ namespace App\Providers;
 use App\Models\Bill;
 use App\Models\Cart;
 use App\Models\Fashion;
-use App\Models\Product;
-use App\Models\ProductType;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 

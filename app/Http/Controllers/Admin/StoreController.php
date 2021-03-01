@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Repositories\StoreRepository;
 use App\Http\Requests\ProductQuantityRequest;
 use App\Http\Requests\SizeRequest;
-use App\Models\Product;
 use App\Models\Size;
 
 class StoreController extends Controller
