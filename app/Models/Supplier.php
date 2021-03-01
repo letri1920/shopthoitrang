@@ -9,7 +9,7 @@ class Supplier extends Model
 {
     use HasFactory;
 
-    protected $table ="supplier";
+    protected $table ="supplier";//this is brand
 
     public function product(){
     	return $this->hasMany('App\Models\Product','id_supplier','id');

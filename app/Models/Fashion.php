@@ -9,7 +9,7 @@ class Fashion extends Model
 {
     use HasFactory;
 
-    protected $table ="fashion";
+    protected $table ="fashion";// this is category
 
     const On_Cate = 1;
     const Off_Cate = 0;

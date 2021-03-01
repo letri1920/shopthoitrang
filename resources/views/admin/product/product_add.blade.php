@@ -55,12 +55,7 @@
 									<label>Mô tả ngắn</label><br>
 									<textarea id="content" name="description">{{old('description')}}</textarea>
 									<script type="text/javascript">
-										CKEDITOR.replace('content', {
-											filebrowserBrowseUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/ckfinder.html',
-											filebrowserImageBrowseUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/ckfinder.html?Type=Images',
-											filebrowserUploadUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-											filebrowserImageUploadUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-										});
+										CKEDITOR.replace('content');
 									</script>
 									@error('description')
 									<div style="color: #f02849; font-size: 16px;">{{ $message }}.</div>
@@ -71,12 +66,7 @@
 									<label>Mô tả chi tiết</label><br>
 									<textarea id="content1" name="long_description">{{old('long_description')}}</textarea>
 									<script type="text/javascript">
-										CKEDITOR.replace('content1', {
-											filebrowserBrowseUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/ckfinder.html',
-											filebrowserImageBrowseUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/ckfinder.html?Type=Images',
-											filebrowserUploadUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-											filebrowserImageUploadUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-										});
+										CKEDITOR.replace('content1');
 									</script>
 									@error('long_description')
 									<div style="color: #f02849; font-size: 16px;">{{ $message }}.</div>

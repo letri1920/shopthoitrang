@@ -63,12 +63,7 @@
 									<div style="color: #f02849; font-size: 16px;">{{ $message }}.</div>
 									@enderror
 									<script type="text/javascript">
-										CKEDITOR.replace('content', {
-											filebrowserBrowseUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/ckfinder.html',
-											filebrowserImageBrowseUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/ckfinder.html?Type=Images',
-											filebrowserUploadUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-											filebrowserImageUploadUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-										});
+										CKEDITOR.replace('content');
 									</script>
 
 								</div><br>
@@ -82,12 +77,7 @@
 									<div style="color: #f02849; font-size: 16px;">{{ $message }}.</div>
 									@enderror
 									<script type="text/javascript">
-										CKEDITOR.replace('content1', {
-											filebrowserBrowseUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/ckfinder.html',
-											filebrowserImageBrowseUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/ckfinder.html?Type=Images',
-											filebrowserUploadUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-											filebrowserImageUploadUrl: 'http://127.0.0.1/shopthoitrang/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-										});
+										CKEDITOR.replace('content1');
 									</script>
 
 								</div><br>

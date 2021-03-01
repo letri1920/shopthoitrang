@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Bill;
 use App\Models\Date;
 use App\Models\Product;
-use App\Models\Visitors;
 use Illuminate\Http\Request;
 use App\Repositories\AdminRepository;
 use Carbon\Carbon;
@@ -71,45 +70,7 @@ class AdminController extends Controller
         ];
         // end thong ke doanh thu 
 
-        // thong ke truy cap
-
-        // //current online
-        // $user_ip_address = $request->ip();
-        // //đầu tháng trước
-        // $early_last_month = Carbon::now('Asia/Ho_Chi_Minh')->subMonth()->startOfMonth()->toDateString();
-        // //cuối tháng trước
-        // $end_of_last_month = Carbon::now('Asia/Ho_Chi_Minh')->subMonth()->endOfMonth()->toDateString();
-        // //đầu tháng này
-        // $early_this_month = Carbon::now('Asia/Ho_Chi_Minh')->startOfMonth()->toDateString();
-        // //Một năm
-        // $oneyears = Carbon::now('Asia/Ho_Chi_Minh')->subdays(365)->toDateString();
-
         $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
-
-        // //đang online
-        // $visitors_current = Visitors::where('ip_address', $user_ip_address)->first();
-        // $visitor_count = $visitors_current->count();
-        //     $visitor = new Visitors();
-        //     $visitor->ip_address = $user_ip_address;
-        //     $visitor->date_visitor = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
-        //     $visitor->save();
-        // //Tổng tháng trước
-        // $visitor_of_lastmonth = Visitors::whereBetween('date_visitor', [$early_last_month, $end_of_last_month])->get();
-        // $visitor_last_month_count = $visitor_of_lastmonth->count();
-
-        // //Tổng tháng này
-        // $visitor_of_thismonth = Visitors::whereBetween('date_visitor', [$early_this_month, $now])->get();
-        // $visitor_this_month_count = $visitor_of_thismonth->count();
-
-        // //Tổng 1 năm
-        // $visitor_of_year = Visitors::whereBetween('date_visitor', [$oneyears, $now])->get();
-        // $visitor_year_count = $visitor_of_year->count();
-
-        // //Tổng lược xem
-        // $visitors = Visitors::all();
-        // $visitors_total = $visitors->count();
-
-        // // end thong ke truy cap
 
         //Sản phẩm xem nhiều
         $product_views = Product::orderBy('product_views', 'DESC')->limit(10)->get();
