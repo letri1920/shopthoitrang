@@ -5,7 +5,6 @@ namespace App\Repositories;
 use App\Models\Bill;
 use App\Models\BillDetail;
 use Illuminate\Support\Facades\Hash;
-
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
