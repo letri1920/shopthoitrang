@@ -6,6 +6,7 @@ use App\Models\Bill;
 use App\Models\BillDetail;
 use App\Models\Cart;
 use App\Models\Comment;
+use App\Models\News;
 use Illuminate\Support\Facades\Hash;
 
 use App\Models\Product;
@@ -303,7 +304,19 @@ class PageRepository
         $product_sales =$product_sales->paginate(12);
         return $product_sales;
     }
-    //
+    // Tin tức
+    public function getNews(){
+        return News::latest()->paginate(5);
+    }
+
+    public function getNewsViews(){
+        return News::orderBy('news_views','desc')->limit(10)->get();
+    }
+    //chi tiết tin tức
+    public function getNewsDetail($id){
+        return News::find($id);
+    }
+    // Tìm kiếm
     public function getSearch($request)
     {
         $product_search = Product::where('status', 1)->where('name', 'like', '%' . $request->search . '%')
@@ -312,8 +325,7 @@ class PageRepository
             ->paginate(12);
         return $product_search;
     }
-    //
-    //
+    //Thêm giỏ hàng
     public function getAddToCart($request, $id)
     {
         $product_cart = Product::find($id);
@@ -325,7 +337,7 @@ class PageRepository
         $request->Session()->put('cart', $cart);
         return response()->json(array('totalQty' => $cart->totalQty, 'totalPrice' => $cart->totalPrice));
     }
-
+    // Xóa giỏ hàng
     public function getDeleteCarts($id)
     {
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
@@ -356,6 +368,7 @@ class PageRepository
     {
         return Auth::user();
     }
+    // đặt hàng
     public function postCheckout($request)
     {
         $cart = Session::get('cart');
@@ -401,7 +414,7 @@ class PageRepository
         }
         Session::forget('cart');
     }
-    //  
+    // Đăng ký
     public function postRegister($request)
     {
         $user = new User();
@@ -414,6 +427,7 @@ class PageRepository
         return redirect()->back()->with('success', 'Tạo tài khoản thành công');
     }
 
+    // đăng nhập
     public function postLogin($request)
     {
         $admin_array = array('email' => $request->email, 'password' => $request->password, 'level' => 1);
@@ -426,7 +440,7 @@ class PageRepository
             return false;
         }
     }
-
+    // Đăng xuất
     public function getlogout()
     {
         $logout = Auth::logout();

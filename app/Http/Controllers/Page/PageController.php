@@ -61,8 +61,17 @@ class PageController extends Controller
     }
 
     public function getNews(){
-        return view('page.pages.news');
+        $news = $this->repository->getNews();
+        $news_views = $this->repository->getNewsViews();
+        return view('page.pages.news',compact('news','news_views'));
     }
+
+    public function getNewsDetail($id){
+        $news_detail = $this->repository->getNewsDetail($id);
+        $news = $this->repository->getNews();
+        return view('page.pages.news_detail',compact('news_detail','news'));
+    }
+
     public function postRating($id, RatingRequest $request)
     {
         $this->repository->postRating($id, $request);
