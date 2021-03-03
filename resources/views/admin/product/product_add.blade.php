@@ -6,7 +6,7 @@
 			<li><a href="{{route('admin_index')}}">
 					<em class="fa fa-home"></em>
 				</a></li>
-			<li class="active">Loại sản phẩm</li>
+			<li class="active">Thêm sản phẩm</li>
 		</ol>
 	</div>
 	<div class="row">

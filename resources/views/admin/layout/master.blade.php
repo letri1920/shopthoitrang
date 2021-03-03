@@ -67,23 +67,10 @@
 		<div class="divider"></div>
 		<ul class="nav menu" style="margin: 5px 0px;">
 			<li id="home"><a href="{{route('admin_index')}}"><em class="fa fa-dashboard">&nbsp;</em>Tổng quan</a></li>
-			<li><a style="background:#337ab7;color: #fff;font-size: 18px;"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Quản lý sản phẩm</a></li>
-			<li id="product-type"><a href="{{route('producttype_list')}}"><i class="fa fa-list-alt" aria-hidden="true"></i> Danh mục & Loại SP</a></li>
+			<li><a style="background:#337ab7;color: #fff;font-size: 16px;"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Quản lý sản phẩm</a></li>
+			<li id="product-type"><a href="{{route('producttype_list')}}"><i class="fa fa-list-alt" aria-hidden="true"></i> Danh mục & Loại</a></li>
 			<li id="products"><a href="{{route('product_list')}}"><i class="fa fa-product-hunt" aria-hidden="true"></i> Sản phẩm</a></li>
-			<li class="parent lia"><a data-toggle="collapse" href="#collapseExample">
-					<i class="fa fa-picture-o">&nbsp;</i> Ảnh bìa <span data-toggle="collapse" href="#collapseExample" class="icon pull-right"></span>
-				</a>
-				<ul class="children collapse" id="collapseExample">
-					<li id="slide"><a class="" href="{{route('slide_list')}}">
-							<span class="fa fa-arrow-right">&nbsp;</span> Ảnh bìa
-						</a></li>
-					<li id="sale-banner"><a class="" href="{{route('salebanner_list')}}">
-							<span class="fa fa-arrow-right">&nbsp;</span> Ảnh giảm giá
-						</a></li>
-				</ul>
-			</li>
-			<li id="supplier"><a href="{{route('supplier_list')}}"><i class="fa fa-buysellads" aria-hidden="true"></i> Thương hiệu</a></li>
-			<li><a style="background:#337ab7;color: #fff;font-size: 18px;"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Quản lý bán hàng</a></li>
+			<li><a style="background:#337ab7;color: #fff;font-size: 16px;"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Quản lý bán hàng</a></li>
 			<li class="parent lia"><a data-toggle="collapse" href="#sub-item-1">
 					<i class="fa fa-file-text" aria-hidden="true"></i> Đơn hàng
 					<span data-toggle="collapse" href="#sub-item-1" class="icon pull-right">
@@ -109,8 +96,26 @@
 			</li>
 
 			<li id="store"><a href="{{route('store')}}"><i class="fa fa-archive" aria-hidden="true"></i> Kho hàng</a></li>
-			<li><a style="background:#337ab7;color: #fff;font-size: 18px;"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Quản lý thành viên</a></li>
+			<li><a style="background:#337ab7;color: #fff;font-size: 16px;"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Quản lý thành viên</a></li>
 			<li id="users"><a href="{{route('user')}}"><i class="fa fa-users" aria-hidden="true"></i> Thành viên</a></li>
+			<li class="parent lia"><a data-toggle="collapse" href="#collapseExample" style="background:#337ab7;color: #fff;font-size: 16px;">
+					<i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Quản lý chung<span data-toggle="collapse" href="#collapseExample" class="icon pull-right"></span>
+				</a>
+				<ul class="children collapse" id="collapseExample">
+					<li id="slide"><a class="" href="{{route('supplier_list')}}">
+							<span class="fa fa-arrow-right">&nbsp;</span> Thương hiệu
+						</a></li>
+					<li id="slide"><a class="" href="{{route('slide_list')}}">
+							<span class="fa fa-arrow-right">&nbsp;</span> Ảnh bìa
+						</a></li>
+					<li id="sale-banner"><a class="" href="{{route('salebanner_list')}}">
+							<span class="fa fa-arrow-right">&nbsp;</span> Ảnh giảm giá
+						</a></li>
+					<li id="slide"><a class="" href="{{route('news_list')}}">
+							<span class="fa fa-arrow-right">&nbsp;</span> Tin tức
+						</a></li>
+				</ul>
+			</li>
 		</ul>
 	</div>
 	<!--/.sidebar-->

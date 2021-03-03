@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Page\PageController;
 use App\Http\Controllers\Page\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProductTypeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SupplierController;
@@ -90,7 +91,7 @@ Route::middleware(['CheckAdminLogin'])->group(function () {
 	Route::prefix('admin')->group(function () {
 		Route::get('home', [AdminController::class, 'getAdmin'])->name('admin_index');
 		Route::post('home', [AdminController::class, 'getAdmin'])->name('admin_index');
-
+		// danh mục và loại sản phẩm
 		Route::prefix('product-type')->group(function () {
 			Route::get('/', [ProductTypeController::class, 'getProductTypeList'])->name('producttype_list');
 			Route::post('/', [ProductTypeController::class, 'postProductTypeList'])->name('producttype_list');
@@ -110,7 +111,7 @@ Route::middleware(['CheckAdminLogin'])->group(function () {
 
 			Route::get('menu-delete/{id}', [ProductTypeController::class, 'getMenuDelete'])->name('menu_delete');
 		});
-
+		// sản phẩm
 		Route::prefix('products')->group(function () {
 			Route::get('/', [ProductController::class, 'getProductList'])->name('product_list');
 
@@ -128,11 +129,9 @@ Route::middleware(['CheckAdminLogin'])->group(function () {
 
 			Route::get('delete/{id}', [ProductController::class, 'getProductDelete'])->name('product_delete');
 		});
-
+		// thương hiệu
 		Route::prefix('supplier')->group(function () {
 			Route::get('/', [SupplierController::class, 'getSupplierList'])->name('supplier_list');
-
-			Route::get('add', [SupplierController::class, 'getSupplierAdd'])->name('supplier_add');
 			Route::post('add', [SupplierController::class, 'postSupplierAdd'])->name('supplier_add');
 
 			Route::get('edit/{id}', [SupplierController::class, 'getSupplierEdit'])->name('supplier_edit');
@@ -140,7 +139,7 @@ Route::middleware(['CheckAdminLogin'])->group(function () {
 
 			Route::get('delete/{id}', [SupplierController::class, 'getSupplierDelete'])->name('supplier_delete');
 		});
-
+		//ảnh bìa
 		Route::prefix('slide')->group(function () {
 			Route::get('/', [SlideController::class, 'getSlideList'])->name('slide_list');
 			Route::post('/', [SlideController::class, 'postSlideAdd'])->name('slide_list');
@@ -153,7 +152,7 @@ Route::middleware(['CheckAdminLogin'])->group(function () {
 
 			Route::get('delete/{id}', [SlideController::class, 'getSlideDelete'])->name('slide_delete');
 		});
-
+		// ảnh giảm giá
 		Route::prefix('sale-banner')->group(function () {
 			Route::get('/', [SaleBannerController::class, 'getSaleBannerList'])->name('salebanner_list');
 			Route::post('/', [SaleBannerController::class, 'postSaleBannerAdd'])->name('salebanner_list');
@@ -166,7 +165,19 @@ Route::middleware(['CheckAdminLogin'])->group(function () {
 
 			Route::get('delete/{id}', [SaleBannerController::class, 'getSaleBannerDelete'])->name('salebanner_delete');
 		});
+		// tin tức
+		Route::prefix('news')->group(function(){
+			Route::get('/',[NewsController::class,'getNewsList'])->name('news_list');
 
+			Route::get('add',[NewsController::class,'getNewsAdd'])->name('news_add');
+			Route::post('add',[NewsController::class,'postNewsAdd'])->name('news_add');
+
+			Route::get('edit/{id}',[NewsController::class,'getNewsEdit'])->name('news_edit');
+			Route::post('edit/{id}',[NewsController::class,'postNewsEdit'])->name('news_edit');
+
+			Route::get('delete/{id}',[NewsController::class,'getNewsDelete'])->name('news_delete');
+		});
+		// tất cả đơn hàng
 		Route::prefix('order-all')->group(function () {
 			Route::get('/', [OrderAllController::class, 'getOrder'])->name('order_all');
 			Route::post('/', [OrderAllController::class, 'postSearch'])->name('all_search');
@@ -180,32 +191,33 @@ Route::middleware(['CheckAdminLogin'])->group(function () {
 			Route::get('cancel-active/{id}', [OrderAllController::class, 'getCancelActive'])->name('cancelactive_all');
 			Route::get('delete/{id}', [OrderAllController::class, 'getDelete'])->name('delete_all');
 		});
-
+		// đơn hàng tiếp nhận
 		Route::prefix('order-received')->group(function () {
 			Route::get('/', [OrderReceivedController::class, 'getOrder'])->name('order_received');
 			Route::post('/', [OrderReceivedController::class, 'postSearch'])->name('received_search');
 			Route::get('moved-active/{id}', [OrderReceivedController::class, 'getMovedActive'])->name('movedactive_received');
 			Route::get('cancel-active/{id}', [OrderReceivedController::class, 'getCancelActive'])->name('cancelactive_received');
 		});
+		// đơn hàng đang giao
 		Route::prefix('order-moved')->group(function () {
 			Route::get('/', [OrderMovedController::class, 'getOrder'])->name('order_moved');
 			Route::post('/', [OrderMovedController::class, 'postSearch'])->name('moved_search');
 			Route::get('complete-active/{id}', [OrderMovedController::class, 'getCompleteActive'])->name('completeactive_moved');
 			Route::get('cancel-active/{id}', [OrderMovedController::class, 'getCancelActive'])->name('cancelactive_moved');
 		});
-
+		// đơn hàng thành công
 		Route::prefix('order-complete')->group(function () {
 			Route::get('/', [OrderCompleteController::class, 'getOrder'])->name('order_complete');
 			Route::post('/', [OrderCompleteController::class, 'postSearch'])->name('complete_search');
 			Route::get('delete/{id}', [OrderCompleteController::class, 'getDelete'])->name('delete_complete');
 		});
-
+		// đơn hàng bị hủy
 		Route::prefix('order-cancel')->group(function () {
 			Route::get('/', [OrderCancelController::class, 'getOrder'])->name('order_cancel');
 			Route::post('/', [OrderCancelController::class, 'postSearch'])->name('cancel_search');
 			Route::get('delete/{id}', [OrderCancelController::class, 'getDelete'])->name('delete_cancel');
 		});
-
+		// quản lý kho
 		Route::prefix('store')->group(function () {
 			Route::get('/', [StoreController::class, 'getStore'])->name('store');
 			Route::get('add-size/{id}', [StoreController::class, 'getAddSize'])->name('add_size');
@@ -221,6 +233,7 @@ Route::middleware(['CheckAdminLogin'])->group(function () {
 			
 			Route::get('delete-size/{id}', [StoreController::class, 'getDeleteSize'])->name('delete_size');
 		});
+		// quản lý thành viên
 		Route::prefix('users')->group(function () {
 			Route::get('/', [UsersController::class, 'getUsers'])->name('user');
 			Route::post('/', [UsersController::class, 'postSearchUser'])->name('search_user');
